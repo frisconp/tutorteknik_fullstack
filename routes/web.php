@@ -41,5 +41,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/id/{course}', [CourseController::class, 'edit'])->name('course.edit');
         Route::post('/id/{course}', [CourseController::class, 'update'])->name('course.update');
         Route::get('/id/{course}/delete', [CourseController::class, 'delete'])->name('course.delete');
+        Route::get('/id/{course}/detail', [CourseController::class, 'show'])->name('course.show');
     });
 });

@@ -40,6 +40,7 @@
                                 Admin
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium space-x-4">
+                                <a href="{{ route('course.show', $course->id) }}" class="text-blue-600 hover:text-blue-900">Detail</a>
                                 <a href="{{ route('course.edit', $course->id) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                                 <a href="{{ route('course.delete', $course->id) }}" class="text-red-600 hover:text-red-900">Delete</a>
                             </td>

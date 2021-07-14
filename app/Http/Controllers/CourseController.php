@@ -39,7 +39,7 @@ class CourseController extends Controller
         $course->user_id = Auth::user()->id;
 
         if ($request->file('thumbnail')) {
-            $course->thumbnail = $request->file('thumbnail')->storePublicly('course-thumbnail');
+            $course->thumbnail = $request->file('thumbnail')->store('course-thumbnail', 'public');
         }
 
         $course->save();
@@ -67,7 +67,7 @@ class CourseController extends Controller
         $course->description = $request->description;
 
         if ($request->file('thumbnail')) {
-            $course->thumbnail = $request->file('thumbnail')->storePublicly('course-thumbnail');
+            $course->thumbnail = $request->file('thumbnail')->store('course-thumbnail', 'public');
         }
 
         $course->save();
@@ -80,5 +80,12 @@ class CourseController extends Controller
         $course->delete();
 
         return redirect()->route('course.index');
+    }
+
+    public function show(Request $request, Course $course)
+    {
+        return view('pages.course.show', [
+            'course' => $course
+        ]);
     }
 }
